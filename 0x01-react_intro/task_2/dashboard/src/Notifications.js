@@ -10,7 +10,7 @@ const styles = {
   border: "none",
   opacity: "0.7",
   background: "transparent",
-  cursor: "poniter",
+  cursor: "pointer",
 };
 
 function printOnClick() {
