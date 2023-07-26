@@ -1,13 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App/App";
+import Notifications from "./Notifications/Notifications";
 
-const App = () => {
-  return (
-    <div>
-      <h1>Hello, Webpack React App!</h1>
+ReactDOM.render(
+  <React.StrictMode>
+    <div id="root-notifications">
+      <Notifications />
     </div>
-  );
-};
-
-ReactDOM.render(<App />, document.getElementById('root'));
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
