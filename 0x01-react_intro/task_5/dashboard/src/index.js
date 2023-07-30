@@ -8,7 +8,9 @@ ReactDOM.render(
     <div id="root-notifications">
       <Notifications />
     </div>
-    <App />
+    <div id="root-app">
+      <App />
+    </div>
   </React.StrictMode>,
   document.getElementById("root")
 );
