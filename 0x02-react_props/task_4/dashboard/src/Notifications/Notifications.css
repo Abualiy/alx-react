@@ -1,13 +1,25 @@
-.Notifications {
-  border: 1px dashed red;
-  padding: 8px 0 0 8px;
-  margin-bottom: 1.5rem;
+.menuItem {
+  position: absolute;
+  top: 7px;
+  right: 7px;
 }
 
+.Notifications {
+  
+  padding: 6px 12px;
+  position: absolute;
+  top: 21px;
+  right: 7px;
+  margin-top: 12px;
+}
+
+.Notification-display {
+  border: 3px dashed red;
+}
 [data-notification-type="default"] {
-	color: blue;
+  color: blue;
 }
 
 [data-notification-type="urgent"] {
-	color: red;
+  color: red;
 }

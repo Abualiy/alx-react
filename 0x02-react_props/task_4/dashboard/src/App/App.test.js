@@ -26,5 +26,25 @@ describe('App component', () => {
       const wrapper = shallow(<App />);
       expect(wrapper.find('.App-footer')).toHaveLength(1);
     });
+
+    it('should not display CourseList when isLoggedIn is false', () => {
+      const { queryByText } = render(<App />);
+      const courseListElement = queryByText(/Course List/i);
+      expect(courseListElement).toBeNull();
+    });
+  
+    describe('when isLoggedIn is true', () => {
+      it('should not include the Login component', () => {
+        const { queryByText } = render(<App isLoggedIn={true} />);
+        const loginElement = queryByText(/Login/i);
+        expect(loginElement).toBeNull();
+      });
+  
+      it('should include the CourseList component', () => {
+        const { queryByText } = render(<App isLoggedIn={true} />);
+        const courseListElement = queryByText(/Course List/i);
+        expect(courseListElement).toBeInTheDocument();
+      });
+    });
   });
   
