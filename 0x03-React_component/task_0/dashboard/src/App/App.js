@@ -40,7 +40,7 @@ class App extends React.Component {
         {/* Body */}
         <div className="App-body">
           {/* Login */}
-          {this.props.isLoggedIn ? <CourseList listCourses={listCourses}/> : <Login />}
+          {this.props.isLoggedIn ? <CourseList listCourses={this.listCourses}/> : <Login />}
         </div>
         <div className='App-footer'>
           {/* Footer */}

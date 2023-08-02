@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import Notifications from '../Notifications/Notifications';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
-import './App.css';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
@@ -24,6 +24,25 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    this.isLoggedIn = props.isLoggedIn;
+    this.logOut = props.logOut;
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+  }
+
+  handleKeyDown(e) {
+    e.preventDefault();
+    if (e.ctrlKey && e.key === 'h') {
+        alert("Logging you out");
+        this.logOut();
+    }  
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeyDown);
   }
 
   render() {
@@ -40,7 +59,7 @@ class App extends React.Component {
         {/* Body */}
         <div className="App-body">
           {/* Login */}
-          {this.props.isLoggedIn ? <CourseList listCourses={listCourses}/> : <Login />}
+          {this.props.isLoggedIn ? <CourseList listCourses={this.listCourses}/> : <Login />}
         </div>
         <div className='App-footer'>
           {/* Footer */}
@@ -53,13 +72,16 @@ class App extends React.Component {
   
 }
 
+App.defaultProps = {
+  isLoggedIn: false,
+  logOut: () => {}
+};
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func
 };
 
-App.defaultProps = {
-  isLoggedIn: false
-};
+
 
 export default App;
