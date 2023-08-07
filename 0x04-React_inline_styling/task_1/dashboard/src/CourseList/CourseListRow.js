@@ -1,24 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
-
-const style = StyleSheet.create ({
-  th: {
-    borderBottom: '1px solid gray',
-    margin: '0',
-    padding: '0',
-    textAlign: 'left',
-  },
-
-  firstChild: {
-    ':first-child': {
-      textAlign: 'center',
-    }
-  },
-  td: {
-    paddingLeft: '3px'
-  }
-});
 
 
 function CourseListRow ({ isHeader, textFirstCell, textSecondCell }) {
@@ -33,13 +14,13 @@ function CourseListRow ({ isHeader, textFirstCell, textSecondCell }) {
           <th colSpan="2">{textFirstCell}</th>
         :
           <>
-            <th className={css(style.th)}>{textFirstCell}</th>
-            <th className={css(style.th)}>{textSecondCell}</th>
+            <th>{textFirstCell}</th>
+            <th>{textSecondCell}</th>
           </>
       :
         <>
-          <td className={css(style.td)}>{textFirstCell}</td>
-          <td className={css(style.td)}>{textSecondCell}</td>
+          <td>{textFirstCell}</td>
+          <td>{textSecondCell}</td>
         </>
       }
     </tr>

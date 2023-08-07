@@ -6,7 +6,6 @@ import PropeTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 import { StyleSheet, css } from 'aphrodite';
 
-
 class Notifications extends React.Component {
   constructor(props) {
     super(props);
@@ -24,13 +23,23 @@ class Notifications extends React.Component {
   render() {
     return (
       <>
-        <div className={css(styles.menuItem)}>
+        <div className='menuItem'>
           Your notifications
         </div>
-        {this.props.displayDrawer ? 
-            <div className={css(styles.Notifications)}>
-              <button 
-              className={css(styles.button)}
+        {this.props.displayDrawer? 
+            <div className={css(notificationStyles.notifications)}>
+              <button style={{
+                color: '#3a3a3a',
+                fontWeight: 'bold',
+                background: 'none',
+                border: 'none',
+                fontSize: '15px',
+                position: 'absolute',
+                right: '3px',
+                top: '3px',
+                cursor: 'pointer',
+                outline: 'none',
+              }}
               aria-label="Close"
               onClick={(e) => {
                 console.log('Close button has been clicked');
@@ -72,38 +81,16 @@ class Notifications extends React.Component {
   }
 }
 
-
-const styles = StyleSheet.create ({
-  menuItem: {
-    position: 'absolute',
-    top: '7px',
-    right: '7px',
-  },
-  
-  Notifications: {
+const notificationStyles = StyleSheet.create({
+	notifications: {
+    border: '3px dotted var(--holberton-red)',
     padding: '6px 12px',
     position: 'absolute',
     top: '21px',
     right: '7px',
     marginTop: '12px',
     zIndex: '100',
-    border: '3px dashed red'
-  },
-
-  button: {
-    color: '#3a3a3a',
-    fontWeight: 'bold',
-    background: 'none',
-    border: 'none',
-    fontSize: '15px',
-    position: 'absolute',
-    right: '3px',
-    top: '3px',
-    cursor: 'pointer',
-    outline: 'none',
-  },
-  
-  
+	}
 });
 
 Notifications.defaultProps = {
