@@ -5,21 +5,8 @@ import PropTypes from 'prop-types';
 // import './CourseList.css';
 import { StyleSheet, css } from 'aphrodite';
 
-const style = StyleSheet.create({
-  table: {
-    width: '90%',
-    border: '1px solid gray',
-    margin: 'auto',
-    marginTop: '40px',
-    padding: '0'
-  },
 
-
-  
-});
-
-
-const CourseList = ({ listCourses }) => {
+function CourseList({ listCourses }) {
   return (
     <table className={css(style.table)} id="CourseList" cellPadding="0" cellSpacing="0">
       <thead>
@@ -40,7 +27,19 @@ const CourseList = ({ listCourses }) => {
       </tbody>
     </table>
   );
-};
+}
+
+const style = StyleSheet.create({
+  table: {
+    width: '90%',
+    border: '1px solid gray',
+    margin: 'auto',
+    marginTop: '40px',
+    padding: '0'
+  }  
+});
+
+
 CourseList.defaultProps = {
   listCourses: []
 };

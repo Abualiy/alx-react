@@ -1,12 +1,5 @@
 import React from "react";
-// import './Login.css'
 import { StyleSheet, css } from 'aphrodite';
-
-const styles = StyleSheet.create ({
-    modified: {
-        display: 'flex'
-    }
-});
 
 function Login() {
     return (
@@ -31,5 +24,11 @@ function Login() {
 
     );
 }
+
+const styles = StyleSheet.create ({
+    modified: {
+        display: 'flex'
+    }
+});
 
 export default Login;
