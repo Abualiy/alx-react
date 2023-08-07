@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite';
-// import './App.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
@@ -12,12 +11,7 @@ import { getLatestNotification } from '../utils/utils';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
-  rootNotificationStyle: {
-    position: 'absolute',
-    width: '40%',
-    right: '0'
-  },
-
+  
   App: {
     height: '100vh',
     maxWidth: '100vw',
@@ -29,7 +23,17 @@ const styles = StyleSheet.create({
     padding: '2em',
     borderBottom: '3px solid #e0354b',
     height: '45 %'
-  }
+  },
+
+  footer: {
+    borderTop: '3px solid red',
+    width: '100%',
+    fontSize: '1rem',
+    padding: '1.2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    fontStyle: 'italic'
+}
 });
 
 class App extends React.Component {
@@ -72,9 +76,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <div className={css(styles.rootNotificationStyle)}>
           <Notifications listNotifications={this.listNotifications} />
-        </div>
         <div className={css(styles.App)}>
           {/* Header */}
           <div className="App-header">
@@ -92,7 +94,7 @@ class App extends React.Component {
               <p>Random Text</p>
             </BodySection>
           </div>
-          <div className='App-footer'>
+          <div className={css(style.footer)}>
             {/* Footer */}
             <Footer />
           </div>
