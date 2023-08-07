@@ -94,7 +94,7 @@ class App extends React.Component {
               <p>Random Text</p>
             </BodySection>
           </div>
-          <div className={css(style.footer)}>
+          <div className={css(styles.footer)}>
             {/* Footer */}
             <Footer />
           </div>
