@@ -12,22 +12,22 @@ import { StyleSheet, css } from 'aphrodite';
 
 
 class App extends React.Component {
-
+  
   constructor(props) {
     super(props);
     this.isLoggedIn = props.isLoggedIn;
     this.logOut = props.logOut;
     this.handleKeyDown = this.handleKeyDown.bind(this);
     this.listCourses = [
-      { id: 1, name: 'ES6', credit: 60 },
-      { id: 2, name: 'Webpack', credit: 20 },
-      { id: 3, name: 'React', credit: 40 }
+      {id: 1, name: 'ES6', credit: 60},
+      {id: 2, name: 'Webpack', credit: 20},
+      {id: 3, name: 'React', credit: 40}
     ];
-
+  
     this.listNotifications = [
-      { id: 1, value: "New course available", type: "default" },
-      { id: 2, value: "New resume available", type: "urgent" },
-      { id: 3, html: { __html: getLatestNotification() }, type: "urgent" },
+      {id: 1, value: "New course available", type: "default"},
+      {id: 2, value: "New resume available", type: "urgent"},
+      {id: 3, html: {__html: getLatestNotification()}, type: "urgent"},
     ];
     this.state = {
       displayDrawer: false
@@ -54,7 +54,7 @@ class App extends React.Component {
       e.preventDefault();
       alert("Logging you out");
       this.logOut();
-    }
+    }  
   }
 
   componentDidMount() {
@@ -65,7 +65,7 @@ class App extends React.Component {
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
-  render() {
+  render () {
     return (
       <React.Fragment>
         <Notification
@@ -77,28 +77,12 @@ class App extends React.Component {
         <div className={css(bodyStyles.App)}>
           <Header />
           {this.props.isLoggedIn ?
-            <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={this.listCourses} /></BodySectionWithMarginBottom>
-            :
+            <BodySectionWithMarginBottom title="Course list"><CourseList listCourses={this.listCourses}/></BodySectionWithMarginBottom>
+          : 
             <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>
           }
           <BodySection title="News from the School">
-            <p className={css(bodyStyles.justify)}>
-              Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit. Sed interdum urna eget
-              purus hendrerit, vel luctus libero lacinia.
-              Nunc finibus bibendum tortor, id tempus
-              tortor luctus ac. Sed euismod eros vel
-              quam ullamcorper, id varius justo tincidunt.
-              Nulla facilisi. Proin nec eleifend ex.
-              Nullam eget ipsum quis metus tincidunt
-              dignissim. Maecenas auctor auctor erat,
-              non auctor ex tincidunt nec. Vestibulum
-              auctor ex id sem suscipit, velqueat tellus
-              hendrerit. Etiam eu felis sit amet lectus
-              posuere dignissim. Vivamus pulvinar, ante ac
-              maximus bibendum, dui odio malesuada metus, vel
-              pretium justo risus eget enim. Sed nec bibendum purus.
-            </p>
+            <p>Random Text</p>
           </BodySection>
           <div className={css(footerStyles.footer)}>
             <Footer />
@@ -113,28 +97,24 @@ const bodyStyles = StyleSheet.create({
   App: {
     position: 'relative',
     minHeight: '100vh'
-  },
-
-  justify: {
-    textAlign: 'justify'
   }
 });
 
 const footerStyles = StyleSheet.create({
-  footer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTop: '3px solid #E11D3F',
-    padding: '1rem',
-    fontStyle: 'italic',
-  }
+	footer: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderTop: '3px solid #E11D3F',
+		padding: '1rem',
+		fontStyle: 'italic',
+	}
 });
 
 App.defaultProps = {
   isLoggedIn: false,
-  logOut: () => { }
+  logOut: () => {}
 };
 
 App.propTypes = {
